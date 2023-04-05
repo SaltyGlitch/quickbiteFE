@@ -16,7 +16,7 @@ function RegisterPage() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:5242/Auth/register", {
+      const response = await fetch("https://quickbitebe.azurewebsites.net/Auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

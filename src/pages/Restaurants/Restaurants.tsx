@@ -10,7 +10,7 @@ function Restaurant() {
   const [dishes, setDishes] = useState<Dish[]>([]);
   const [restaurantById, setRestaurantById] = useState<RestaurantModel>();
   const fetchRestaurantById = async (id: any) => {
-    const result = await fetch(`http://localhost:5242/api/Restaurants/${id}`);
+    const result = await fetch(`https://quickbitebe.azurewebsites.net/api/Restaurants/${id}`);
     const data = await result.json();
     setRestaurantById(data);
     setDishes(data.dishes);
