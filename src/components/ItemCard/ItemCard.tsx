@@ -5,7 +5,7 @@ const ItemCard: React.FC<itemCardProps> = ({ dish: Dish }) => {
   const [user, setUser] = useState<User | null>(null);
   const handleAddToCart = async (dishId: number, quantity: number) => {
     const response = await fetch(
-      `https://quickbitebe.azurewebsites.net/api/Carts?userId=${user?.id}`,
+      `http://localhost:5242/api/Carts?userId=${user?.id}`,
       {
         method: "POST",
         headers: {
@@ -24,7 +24,7 @@ const ItemCard: React.FC<itemCardProps> = ({ dish: Dish }) => {
   };
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-    fetch("https://quickbitebe.azurewebsites.net/Auth/user", {
+    fetch("http://localhost:5242/Auth/user", {
       method: "GET",
       headers: { Authorization: `Bearer ${jwt}` },
       credentials: "include",

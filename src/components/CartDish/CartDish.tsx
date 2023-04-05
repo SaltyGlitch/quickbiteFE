@@ -16,7 +16,7 @@ const CartDish: React.FC<CartDishProps> = ({ cartDishes, updateCart }) => {
   };
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-    fetch("https://quickbitebe.azurewebsites.net/Auth/user", {
+    fetch("http://localhost:5242/Auth/user", {
       method: "GET",
       headers: { Authorization: `Bearer ${jwt}` },
       credentials: "include",
@@ -40,7 +40,7 @@ const CartDish: React.FC<CartDishProps> = ({ cartDishes, updateCart }) => {
   const fetchDishesById = useCallback(
     async (id: any) => {
       const result = await fetch(
-        `https://quickbitebe.azurewebsites.net/api/Dishes/${cartDishes.dishId}`
+        `http://localhost:5242/api/Dishes/${cartDishes.dishId}`
       );
       const data = await result.json();
       setDishesById(data);
@@ -51,7 +51,7 @@ const CartDish: React.FC<CartDishProps> = ({ cartDishes, updateCart }) => {
     fetchDishesById(id);
   }, [id, fetchDishesById]);
   const handlePatchCart = async () => {
-    const response = await fetch(`https://quickbitebe.azurewebsites.net/api/Carts/`, {
+    const response = await fetch(`http://localhost:5242/api/Carts/`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const CartDish: React.FC<CartDishProps> = ({ cartDishes, updateCart }) => {
     if (response.ok) {
       updateCart({ ...cartDishes, quantity: counter });
       const result = await fetch(
-        `https://quickbitebe.azurewebsites.net/api/Carts/${user?.cartId}`
+        `http://localhost:5242/api/Carts/${user?.cartId}`
       );
       const data = await result.json();
       setTotalPrice(data.totalPrice);

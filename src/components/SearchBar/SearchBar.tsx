@@ -4,7 +4,7 @@ import "./SearchBar.css";
 function SearchBar() {
   const [restaurant, setRestaurant] = useState<RestaurantModel[]>([]);
   const fetchRestaurant = async () => {
-    const result = await fetch("https://quickbitebe.azurewebsites.net/api/Restaurants");
+    const result = await fetch("http://localhost:5242/api/Restaurants");
     const data = await result.json();
     setRestaurant(data);
     console.log(data);

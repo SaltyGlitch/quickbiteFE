@@ -18,7 +18,7 @@ function Profile() {
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-    fetch("https://quickbitebe.azurewebsites.net/Auth/user", {
+    fetch("http://localhost:5242/Auth/user", {
       method: "GET",
       headers: { Authorization: `Bearer ${jwt}` },
       credentials: "include",
@@ -41,14 +41,14 @@ function Profile() {
   }, [navigate]);
   const fetchOrders = async () => {
     const response = await fetch(
-      `https://quickbitebe.azurewebsites.net/api/Orders?userId=${user?.id}`
+      `http://localhost:5242/api/Orders?userId=${user?.id}`
     );
     const data = await response.json();
     setOrders(data);
   };
   const fetchRestaurantById = async (id: number) => {
     if (!restaurants[id]) {
-      const result = await fetch(`https://quickbitebe.azurewebsites.net/api/Restaurants/${id}`);
+      const result = await fetch(`http://localhost:5242/api/Restaurants/${id}`);
       const data = await result.json();
       setRestaurants((prevRestaurants) => ({ ...prevRestaurants, [id]: data }));
     }
@@ -69,7 +69,7 @@ function Profile() {
     });
   }, [orders]);
   const handleLogout = async () => {
-    const response = await fetch("https://quickbitebe.azurewebsites.net/Auth/logout", {
+    const response = await fetch("http://localhost:5242/Auth/logout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
