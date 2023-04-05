@@ -10,7 +10,7 @@ function LoginPage() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data: LoginDto = { email, password };
-    const response = await fetch("http://localhost:5242/Auth/login", {
+    const response = await fetch("https://quickbitebe.azurewebsites.net/Auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

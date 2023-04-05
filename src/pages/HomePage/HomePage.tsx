@@ -10,7 +10,7 @@ function HomePage() {
     RestaurantModel[]
   >([]);
   const fetchRestaurant = async () => {
-    const result = await fetch("http://localhost:5242/api/Restaurants");
+    const result = await fetch("https://quickbitebe.azurewebsites.net/api/Restaurants");
     const data = await result.json();
     setRestaurant(data);
     setFilteredRestaurant(data);
