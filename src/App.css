@@ -23,4 +23,5 @@ a:visited {
 }
 ::placeholder {
   color: #f8ece0;
+  font-family: myFont;
 }

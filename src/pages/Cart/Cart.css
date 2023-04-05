@@ -10,11 +10,13 @@
 .cart-add-button {
   color: #444141;
   border: 0;
-  font-size: 25px;
+  font-size: 15px;
   border-radius: 15px;
-  padding: 5px 10px;
+  padding: 5px 15px;
   background: #f8ece0;
-  margin-left: 10px;
+  height: 40px;
+  margin-top: 20px;
+  background: #fa7d09;
 }
 .cart-figure {
   background: #444141;
@@ -24,15 +26,14 @@
   text-align: left;
   margin-top: 40px;
   padding: 20px;
-}
-.cart-section {
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .cart-container {
   background: #444141;
   border-radius: 25px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;

@@ -31,30 +31,41 @@ function LoginPage() {
       <section className="login-section">
         <h2 className="login-h2">Login</h2>
         <form onSubmit={handleSubmit}>
-          <p className="login-p">Email</p>
-          <input
-            className="login-input"
-            placeholder="Email"
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <div className="login-div">
+            <img
+              src="./assets/email-logo.png"
+              alt="email"
+            />
+            <input
+              className="login-input"
+              placeholder="Email"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
           <br />
-          <p className="login-p">Password</p>
+          <div className="login-div">
+            <img
+              className="login-img-logo"
+              src="./assets/password-logo.png"
+              alt="password"
+            />
           <input
-            className="login-input"
+            className="login-input-password"
             placeholder="Password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          </div>
           <br />
           {error && <p className="login-error">{error}</p>}
           <button className="login-button" type="submit">
             Login
           </button>
         </form>
-        <p>
+        <p className="login-p-white">
           Don't have an account? <Link to="/register">Sign up</Link>
         </p>
       </section>

@@ -1,6 +1,5 @@
 .restaurant-img {
-  width: 200px;
-  height: 200px;
+  width: 300px;
   margin-bottom: 20px;
   border-radius: 15px;
 }
@@ -15,8 +14,8 @@
   color: #f8ece0;
   border-radius: 25px;
   background: #444141;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
 }

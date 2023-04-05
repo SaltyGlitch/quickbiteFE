@@ -12,6 +12,7 @@ export interface Dish {
   categoryId: number;
   price: number;
   restaurantId: number;
+  pictureUrl: string;
 }
 export interface RestaurantModel {
   id: number;
@@ -74,4 +75,12 @@ export interface PaymentIntent {
 }
 export interface Props {
   restaurant: RestaurantModel[];
+}
+export interface Order {
+  id: number;
+  dishes: Dish[];
+  address: string;
+  userId: number;
+  totalPrice: number;
+  restaurantName: string;
 }

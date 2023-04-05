@@ -46,12 +46,12 @@ function RegisterPage() {
     }
   };
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const emailRegex = /\S+@\S+\.\S+/;
+    const emailRegex = /\S+@\S+.\S+/;
     setEmail(event.target.value);
     setEmailError(!emailRegex.test(event.target.value));
   };
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
     setPassword(event.target.value);
     setPasswordError(!passwordRegex.test(event.target.value));
   };
@@ -60,13 +60,11 @@ function RegisterPage() {
       <h1 className="register-h1">Quickbite</h1>
       <img className="register-img" src="./assets/logo.png" alt="logo" />
       <section className="register-section">
-        <h2 className="register-h2">Register</h2>
+        <h2 className="register-h2">Create Account</h2>
         {successMessage && (
           <div className="register-success">{successMessage}</div>
         )}
-        {errorMessage && <div className="register-error">{errorMessage}</div>}
         <form onSubmit={handleSubmit}>
-          <p className="register-p">Name</p>
           <input
             className="register-input"
             placeholder="Name"
@@ -75,7 +73,6 @@ function RegisterPage() {
             onChange={(e) => setFirstname(e.target.value)}
           />
           <br />
-          <p className="register-p">Surname</p>
           <input
             className="register-input"
             placeholder="Surname"
@@ -84,7 +81,6 @@ function RegisterPage() {
             onChange={(e) => setLastname(e.target.value)}
           />
           <br />
-          <p className="register-p">Email</p>
           <input
             className={`register-input ${
               emailError ? "register-input-error" : ""
@@ -94,9 +90,8 @@ function RegisterPage() {
             value={email}
             onChange={handleEmailChange}
           />
-          {emailError && <p>Invalid email address</p>}
+          {emailError && <p className="register-validation">Invalid email address</p>}
           <br />
-          <p className="register-p">Password</p>
           <input
             className={`register-input ${
               passwordError ? "register-input-error" : ""
@@ -106,9 +101,8 @@ function RegisterPage() {
             value={password}
             onChange={handlePasswordChange}
           />
-          {passwordError && <p>Minimum 8 charahers a capital and a special</p>}
+          {passwordError && <p  className="register-validation">Minimum 8 charahers a capital and a special</p>}
           <br />
-          <p className="register-p">Address</p>
           <input
             className="register-input"
             placeholder="Address"
@@ -117,7 +111,6 @@ function RegisterPage() {
             onChange={(e) => setAddress(e.target.value)}
           />
           <br />
-          <p className="register-p">Telophone</p>
           <input
             className="register-input"
             placeholder="Telephone"
@@ -126,10 +119,11 @@ function RegisterPage() {
             onChange={(e) => setPhonenumber(e.target.value)}
           />
           <br />
+          {errorMessage && <div className="register-error">{errorMessage}</div>}
           <button className="register-button" type="submit">
             Register
           </button>
-          <p>
+          <p className="register-message">
             Already have an account? <Link to="/login">Login</Link>
           </p>
         </form>

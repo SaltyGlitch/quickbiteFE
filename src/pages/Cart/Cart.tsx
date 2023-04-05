@@ -17,8 +17,6 @@ function Cart() {
       const data = await result.json();
       setCartById(data);
       setCartDishes(data.cartDishes);
-      console.log(data);
-      console.log(cartById);
     }
   }, [user?.cartId, cartById]);
   useEffect(() => {

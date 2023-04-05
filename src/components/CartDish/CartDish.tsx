@@ -37,13 +37,16 @@ const CartDish: React.FC<CartDishProps> = ({ cartDishes, updateCart }) => {
   }, [user?.cartId]);
   let { id } = useParams();
   const [dishesById, setDishesById] = useState<Dish>();
-  const fetchDishesById = useCallback(async (id: any) => {
-    const result = await fetch(
-      `http://localhost:5242/api/Dishes/${cartDishes.dishId}`
-    );
-    const data = await result.json();
-    setDishesById(data);
-  }, [cartDishes.dishId]);
+  const fetchDishesById = useCallback(
+    async (id: any) => {
+      const result = await fetch(
+        `http://localhost:5242/api/Dishes/${cartDishes.dishId}`
+      );
+      const data = await result.json();
+      setDishesById(data);
+    },
+    [cartDishes.dishId]
+  );
   useEffect(() => {
     fetchDishesById(id);
   }, [id, fetchDishesById]);
@@ -73,25 +76,31 @@ const CartDish: React.FC<CartDishProps> = ({ cartDishes, updateCart }) => {
   };
   return (
     <main>
+      <p>{dishesById?.name}</p>
       {cartDishes.quantity > 0 ? (
         <div className="cart-container">
-          <div className="button-container">
-            <button className="control-button" onClick={decrease}>
-              -
-            </button>
-            <span className="counter-output">{counter}</span>
-            <button className="control-button" onClick={increase}>
-              +
-            </button>
+          <div className="cart-container-left">
+            <p>
+              Price: &nbsp;
+              <span className="cartdish-span">{dishesById?.price}</span>
+            </p>
+            <p>Amount: &nbsp; {cartDishes.quantity}</p>
           </div>
-          <p>{dishesById?.name}</p>
-          <p>
-            <span className="cartdish-span">{dishesById?.price}</span>
-          </p>
-          <p>{cartDishes.quantity}</p>
-          <button className="cart-add-button" onClick={handlePatchCart}>
-            Update cart
-          </button>
+          <div className="button-container">
+            <div className="cart-container-right">
+              <button className="control-button" onClick={decrease}>
+                -
+              </button>
+              <span className="counter-output">{counter}</span>
+              <button className="control-button" onClick={increase}>
+                +
+              </button>
+              <br />
+              <button className="cart-add-button" onClick={handlePatchCart}>
+                Update
+              </button>
+            </div>
+          </div>
         </div>
       ) : null}
     </main>

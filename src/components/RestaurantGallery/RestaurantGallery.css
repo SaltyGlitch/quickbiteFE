@@ -6,12 +6,17 @@
   margin: 10px;
 }
 .restaurantgallery-img {
-  width: 150px;
-  height: 150px;
+  width: 200px;
   margin: 10px 35px 10px 10px;
   border-radius: 15px;
 }
 .restaurantgallery-h2 {
   color: #fa7d09;
   font-size: 20px;
+}
+.restaurantgallery-p {
+  font-size: 20px;
+}
+.restaurantgallery-span {
+  color: #fa7d09;
 }

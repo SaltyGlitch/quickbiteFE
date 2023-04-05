@@ -15,9 +15,8 @@ const RestaurantGallery: React.FC<Props> = ({ restaurant }) => {
               />
             </div>
             <div className="restaurantgallery-container">
-              <p>{restaurant.name}</p>
-              <p>{restaurant.location}</p>
-              <p>{restaurant.name}</p>
+              <p className="restaurantgallery-p"><span className="restaurantgallery-span">{restaurant.name}</span></p>
+              <p className="restaurantgallery-p">{restaurant.location}</p>
             </div>
           </figure>
         </Link>
