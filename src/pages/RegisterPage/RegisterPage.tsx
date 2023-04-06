@@ -113,7 +113,7 @@ function RegisterPage() {
           <br />
           <input
             className="register-input"
-            placeholder="Telephone"
+            placeholder="Phone"
             type="text"
             value={phonenumber}
             onChange={(e) => setPhonenumber(e.target.value)}
