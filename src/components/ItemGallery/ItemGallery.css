@@ -1,8 +1,8 @@
 .itemgallery-figure {
   background: #444141;
   border-radius: 25px;
-  display: flex;
   align-items: center;
+  margin-top: 30px;
 }
 .itemgallery-dish-price {
   color: #fa7d09;

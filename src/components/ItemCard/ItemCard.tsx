@@ -59,8 +59,9 @@ const ItemCard: React.FC<itemCardProps> = ({ dish: Dish }) => {
           <img className="itemcard-img" src={Dish.pictureUrl} alt="dish" />
           <p className="itemgallery-p">{Dish.name}</p>
           <p className="itemgallery-p">
-            Price: <span className="itemgallery-dish-price">{Dish.price}</span>
+            Price: <span className="itemgallery-dish-price">{Dish.price} €</span>
           </p>
+          <p className="itemgallery-p">{Dish.description}</p>
           <div className="itemgallery-container">
             <div className="button-container">
               <button className="control-button" onClick={decrease}>

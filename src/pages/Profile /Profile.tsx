@@ -13,9 +13,7 @@ function Profile() {
   const [restaurants, setRestaurants] = useState<
     Record<number, RestaurantModel>
   >({});
-
   const navigate = useNavigate();
-
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     fetch("http://localhost:5242/Auth/user", {
@@ -93,7 +91,11 @@ function Profile() {
     <main className="profile-main">
       <HeaderComponent />
       <h1 className="profile-h1">User Profile</h1>
-      <img className="profile-img" src="./assets/profile-logo.png" alt="profile" />
+      <img
+        className="profile-img"
+        src="./assets/profile-logo.png"
+        alt="profile"
+      />
       <section className="profile-section">
         <p className="profile-p">Name: {user.firstName} </p>
         <p className="profile-p">Email: {user.email}</p>
@@ -146,5 +148,4 @@ function Profile() {
     </main>
   );
 }
-
 export default Profile;

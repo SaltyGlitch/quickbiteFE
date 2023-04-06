@@ -73,10 +73,9 @@ function Cart() {
         ))}
         <figure className="cart-figure">
           <div>
-            <h2>Price details</h2>
             <h2>
-              Total cost :{" "}
-              <span className="cart-span">{cartById?.totalPrice}</span>
+              Total :{" "}
+              <span className="cart-span">{cartById?.totalPrice} €</span>
             </h2>
           </div>
         </figure>

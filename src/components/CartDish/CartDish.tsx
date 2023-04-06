@@ -82,9 +82,9 @@ const CartDish: React.FC<CartDishProps> = ({ cartDishes, updateCart }) => {
           <div className="cart-container-left">
             <p>
               Price: &nbsp;
-              <span className="cartdish-span">{dishesById?.price}</span>
+              <span className="cartdish-span">{dishesById?.price} €</span>
             </p>
-            <p>Amount: &nbsp; {cartDishes.quantity}</p>
+            <p>Quantity: &nbsp; {cartDishes.quantity}</p>
           </div>
           <div className="button-container">
             <div className="cart-container-right">
