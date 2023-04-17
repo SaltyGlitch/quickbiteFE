@@ -13,7 +13,7 @@ function Cart() {
   const fetchCartId = useCallback(async () => {
     if (user?.cartId) {
       const result = await fetch(
-        `https://quickbitebe.azurewebsites.net/api/Carts/${user.cartId}`
+        `http://localhost:5242/api/Carts/${user.cartId}`
       );
       const data = await result.json();
       setCartById(data);
@@ -22,7 +22,7 @@ function Cart() {
   }, [user?.cartId, cartById]);
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-    fetch("https://quickbitebe.azurewebsites.net/Auth/user", {
+    fetch("http://localhost:5242/Auth/user", {
       method: "GET",
       headers: { Authorization: `Bearer ${jwt}` },
       credentials: "include",
@@ -54,7 +54,7 @@ function Cart() {
     });
     setCartDishes(updatedCartDishes);
     const result = await fetch(
-      `https://quickbitebe.azurewebsites.net/api/Carts/${user?.cartId}`
+      `http://localhost:5242/api/Carts/${user?.cartId}`
     );
     const data = await result.json();
     setCartById(data);
@@ -76,7 +76,7 @@ function Cart() {
             <h2>Price details</h2>
             <h2>
               Total cost :{" "}
-              <span className="cart-span">{cartById?.totalPrice}</span>
+              <span className="cart-span">{cartById?.totalPrice} €</span>
             </h2>
           </div>
         </figure>

@@ -24,7 +24,7 @@ const Payment = () => {
   const fetchCartId = async (id: any) => {
     if (user?.cartId) {
       const result = await fetch(
-        `https://quickbitebe.azurewebsites.net/api/Carts/${user.cartId}`
+        `http://localhost:5242/api/Carts/${user.cartId}`
       );
       const data = await result.json();
       setCartById(data);
@@ -34,7 +34,7 @@ const Payment = () => {
   };
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-    fetch("https://quickbitebe.azurewebsites.net/Auth/user", {
+    fetch("http://localhost:5242/Auth/user", {
       method: "GET",
       headers: { Authorization: `Bearer ${jwt}` },
       credentials: "include",
@@ -71,7 +71,7 @@ const Payment = () => {
   
   let { idCart } = useParams();
   const postOrder = async () => {
-    const response = await fetch(`https://quickbitebe.azurewebsites.net/api/Orders/`, {
+    const response = await fetch(`http://localhost:5242/api/Orders/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userId: user?.id }),
@@ -83,7 +83,7 @@ const Payment = () => {
   const createPayment = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await fetch("https://quickbitebe.azurewebsites.net/Payment", {
+      const response = await fetch("http://localhost:5242/Payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -115,7 +115,7 @@ const Payment = () => {
     }
     try {
       const response = await fetch(
-        "https://quickbitebe.azurewebsites.net/Payment/paymentmethod",
+        "http://localhost:5242/Payment/paymentmethod",
         {
           method: "POST",
           headers: {
@@ -132,7 +132,7 @@ const Payment = () => {
       if (response.status === 200) {
         try {
           setLoading(true);
-          const response = await fetch("https://quickbitebe.azurewebsites.net/Payment/complete", {
+          const response = await fetch("http://localhost:5242/Payment/complete", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
